@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ==================================================================
-  $Id: 8152d2a6c03a7b4547f5e2deb9b9b039f0356bc0 $
+  $Id: 065ee92df60fb88eb69b1b79745477803330b6b0 $
   
   Relax NG Schema for MusicBrainz XML Metadata Version 2.0
   
@@ -248,6 +248,8 @@
   <xs:element name="recording">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" ref="mmd-2.0:lyrics-original"/>
+        <xs:element minOccurs="0" ref="mmd-2.0:override-title"/>
         <xs:element minOccurs="0" ref="mmd-2.0:title"/>
         <xs:element minOccurs="0" ref="mmd-2.0:length"/>
         <xs:element minOccurs="0" ref="mmd-2.0:annotation"/>
@@ -266,17 +268,15 @@
         <xs:element minOccurs="0" ref="mmd-2.0:user-genre-list"/>
         <xs:element minOccurs="0" ref="mmd-2.0:rating"/>
         <xs:element minOccurs="0" ref="mmd-2.0:user-rating"/>
-        <xs:element minOccurs="0" ref="mmd-2.0:lyrics-original"/>
-        <xs:element minOccurs="0" ref="mmd-2.0:override-title"/>
         <xs:group ref="mmd-2.0:def_recording-element_extension"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:anyURI"/>
       <xs:attributeGroup ref="mmd-2.0:def_recording-attribute_extension"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="length" type="xs:nonNegativeInteger"/>
   <xs:element name="lyrics-original" type="xs:string"/>
   <xs:element name="override-title" type="xs:string"/>
+  <xs:element name="length" type="xs:nonNegativeInteger"/>
   <xs:element name="label">
     <xs:complexType>
       <xs:sequence>

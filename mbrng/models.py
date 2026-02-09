@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Feb  9 17:20:38 2026 by generateDS.py version 2.44.3.
+# Generated Mon Feb  9 17:56:09 2026 by generateDS.py version 2.44.3.
 # Python 3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]
 #
 # Command line options:
@@ -5521,7 +5521,7 @@ class recording(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, id=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, lyrics_original=None, override_title=None, def_extension_element=None, gds_collector_=None, **kwargs_):
+    def __init__(self, id=None, lyrics_original=None, override_title=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -5529,6 +5529,10 @@ class recording(GeneratedsSuper):
         self.ns_prefix_ = "mmd-2.0"
         self.id = _cast(None, id)
         self.id_nsprefix_ = None
+        self.lyrics_original = lyrics_original
+        self.lyrics_original_nsprefix_ = "mmd-2.0"
+        self.override_title = override_title
+        self.override_title_nsprefix_ = "mmd-2.0"
         self.title = title
         self.title_nsprefix_ = "mmd-2.0"
         self.length = length
@@ -5569,10 +5573,6 @@ class recording(GeneratedsSuper):
         self.rating_nsprefix_ = "mmd-2.0"
         self.user_rating = user_rating
         self.user_rating_nsprefix_ = "mmd-2.0"
-        self.lyrics_original = lyrics_original
-        self.lyrics_original_nsprefix_ = "mmd-2.0"
-        self.override_title = override_title
-        self.override_title_nsprefix_ = "mmd-2.0"
         if def_extension_element is None:
             self.def_extension_element = []
         else:
@@ -5593,6 +5593,14 @@ class recording(GeneratedsSuper):
         return self.ns_prefix_
     def set_ns_prefix_(self, ns_prefix):
         self.ns_prefix_ = ns_prefix
+    def get_lyrics_original(self):
+        return self.lyrics_original
+    def set_lyrics_original(self, lyrics_original):
+        self.lyrics_original = lyrics_original
+    def get_override_title(self):
+        return self.override_title
+    def set_override_title(self, override_title):
+        self.override_title = override_title
     def get_title(self):
         return self.title
     def set_title(self, title):
@@ -5671,14 +5679,6 @@ class recording(GeneratedsSuper):
         return self.user_rating
     def set_user_rating(self, user_rating):
         self.user_rating = user_rating
-    def get_lyrics_original(self):
-        return self.lyrics_original
-    def set_lyrics_original(self, lyrics_original):
-        self.lyrics_original = lyrics_original
-    def get_override_title(self):
-        return self.override_title
-    def set_override_title(self, override_title):
-        self.override_title = override_title
     def get_def_extension_element(self):
         return self.def_extension_element
     def set_def_extension_element(self, def_extension_element):
@@ -5700,6 +5700,8 @@ class recording(GeneratedsSuper):
         return result
     def has__content(self):
         if (
+            self.lyrics_original is not None or
+            self.override_title is not None or
             self.title is not None or
             self.length is not None or
             self.annotation is not None or
@@ -5718,8 +5720,6 @@ class recording(GeneratedsSuper):
             self.user_genre_list is not None or
             self.rating is not None or
             self.user_rating is not None or
-            self.lyrics_original is not None or
-            self.override_title is not None or
             self.def_extension_element
         ):
             return True
@@ -5757,6 +5757,14 @@ class recording(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
+        if self.lyrics_original is not None:
+            namespaceprefix_ = self.lyrics_original_nsprefix_ + ':' if (UseCapturedNS_ and self.lyrics_original_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slyrics-original>%s</%slyrics-original>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.lyrics_original), input_name='lyrics-original')), namespaceprefix_ , eol_))
+        if self.override_title is not None:
+            namespaceprefix_ = self.override_title_nsprefix_ + ':' if (UseCapturedNS_ and self.override_title_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%soverride-title>%s</%soverride-title>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.override_title), input_name='override-title')), namespaceprefix_ , eol_))
         if self.title is not None:
             namespaceprefix_ = self.title_nsprefix_ + ':' if (UseCapturedNS_ and self.title_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
@@ -5816,14 +5824,6 @@ class recording(GeneratedsSuper):
             namespaceprefix_ = self.user_rating_nsprefix_ + ':' if (UseCapturedNS_ and self.user_rating_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%suser-rating>%s</%suser-rating>%s' % (namespaceprefix_ , self.gds_format_integer(self.user_rating, input_name='user-rating'), namespaceprefix_ , eol_))
-        if self.lyrics_original is not None:
-            namespaceprefix_ = self.lyrics_original_nsprefix_ + ':' if (UseCapturedNS_ and self.lyrics_original_nsprefix_) else ''
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<%slyrics-original>%s</%slyrics-original>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.lyrics_original), input_name='lyrics-original')), namespaceprefix_ , eol_))
-        if self.override_title is not None:
-            namespaceprefix_ = self.override_title_nsprefix_ + ':' if (UseCapturedNS_ and self.override_title_nsprefix_) else ''
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<%soverride-title>%s</%soverride-title>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.override_title), input_name='override-title')), namespaceprefix_ , eol_))
         for def_extension_element_ in self.def_extension_element:
             namespaceprefix_ = self.def_extension_element_nsprefix_ + ':' if (UseCapturedNS_ and self.def_extension_element_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
@@ -5835,6 +5835,12 @@ class recording(GeneratedsSuper):
             element = etree_.SubElement(parent_element, '{http://musicbrainz.org/ns/mmd-2.0#}' + name_, nsmap=nsmap_)
         if self.id is not None:
             element.set('id', self.gds_format_string(self.id))
+        if self.lyrics_original is not None:
+            lyrics_original_ = self.lyrics_original
+            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}lyrics-original').text = self.gds_format_string(lyrics_original_)
+        if self.override_title is not None:
+            override_title_ = self.override_title
+            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}override-title').text = self.gds_format_string(override_title_)
         if self.title is not None:
             title_ = self.title
             etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}title').text = self.gds_format_string(title_)
@@ -5888,12 +5894,6 @@ class recording(GeneratedsSuper):
         if self.user_rating is not None:
             user_rating_ = self.user_rating
             etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}user-rating').text = self.gds_format_integer(user_rating_)
-        if self.lyrics_original is not None:
-            lyrics_original_ = self.lyrics_original
-            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}lyrics-original').text = self.gds_format_string(lyrics_original_)
-        if self.override_title is not None:
-            override_title_ = self.override_title
-            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}override-title').text = self.gds_format_string(override_title_)
         for def_extension_element_ in self.def_extension_element:
             etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}def_extension_element').text = self.gds_format_string(def_extension_element_)
         if mapping_ is not None:
@@ -5918,7 +5918,19 @@ class recording(GeneratedsSuper):
             already_processed.add('id')
             self.id = value
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
-        if nodeName_ == 'title':
+        if nodeName_ == 'lyrics-original':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'lyrics_original')
+            value_ = self.gds_validate_string(value_, node, 'lyrics_original')
+            self.lyrics_original = value_
+            self.lyrics_original_nsprefix_ = child_.prefix
+        elif nodeName_ == 'override-title':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'override_title')
+            value_ = self.gds_validate_string(value_, node, 'override_title')
+            self.override_title = value_
+            self.override_title_nsprefix_ = child_.prefix
+        elif nodeName_ == 'title':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'title')
             value_ = self.gds_validate_string(value_, node, 'title')
@@ -6023,18 +6035,6 @@ class recording(GeneratedsSuper):
             ival_ = self.gds_validate_integer(ival_, node, 'user_rating')
             self.user_rating = ival_
             self.user_rating_nsprefix_ = child_.prefix
-        elif nodeName_ == 'lyrics-original':
-            value_ = child_.text
-            value_ = self.gds_parse_string(value_, node, 'lyrics_original')
-            value_ = self.gds_validate_string(value_, node, 'lyrics_original')
-            self.lyrics_original = value_
-            self.lyrics_original_nsprefix_ = child_.prefix
-        elif nodeName_ == 'override-title':
-            value_ = child_.text
-            value_ = self.gds_parse_string(value_, node, 'override_title')
-            value_ = self.gds_validate_string(value_, node, 'override_title')
-            self.override_title = value_
-            self.override_title_nsprefix_ = child_.prefix
         elif nodeName_ == 'def_extension_element':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'def_extension_element')
