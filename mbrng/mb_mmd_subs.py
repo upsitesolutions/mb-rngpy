@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 #
-# Generated Tue May  6 18:39:13 2025 by generateDS.py version 2.44.3.
-# Python 3.12.3 (main, Feb  4 2025, 14:48:35) [GCC 13.3.0]
+# Generated Mon Feb  9 17:20:38 2026 by generateDS.py version 2.44.3.
+# Python 3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]
 #
 # Command line options:
 #   ('-o', 'mbrng/models.py')
@@ -15,7 +15,7 @@
 #   musicbrainz_mmd.xsd
 #
 # Command line:
-#   /home/reosarevok/mb-rngpy/venv/bin/generateDS.py -o "mbrng/models.py" -s "mbrng/mb_mmd_subs.py" --super="mb" --external-encoding="utf-8" --export="write etree" musicbrainz_mmd.xsd
+#   /Users/akivahe/Documents/software/notebeast/musicbrainz/mb-rngpy/venv/bin/generateDS.py -o "mbrng/models.py" -s "mbrng/mb_mmd_subs.py" --super="mb" --external-encoding="utf-8" --export="write etree" musicbrainz_mmd.xsd
 #
 # Current working directory (os.getcwd()):
 #   mb-rngpy
@@ -163,8 +163,8 @@ supermod.secondary_type.subclass = secondary_typeSub
 
 
 class recordingSub(supermod.recording):
-    def __init__(self, id=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, **kwargs_):
-        super(recordingSub, self).__init__(id, title, length, annotation, disambiguation, video, artist_credit, first_release_date, release_list, alias_list, puid_list, isrc_list, relation_list, tag_list, user_tag_list, genre_list, user_genre_list, rating, user_rating, def_extension_element,  **kwargs_)
+    def __init__(self, id=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, lyrics_original=None, override_title=None, def_extension_element=None, **kwargs_):
+        super(recordingSub, self).__init__(id, title, length, annotation, disambiguation, video, artist_credit, first_release_date, release_list, alias_list, puid_list, isrc_list, relation_list, tag_list, user_tag_list, genre_list, user_genre_list, rating, user_rating, lyrics_original, override_title, def_extension_element,  **kwargs_)
 supermod.recording.subclass = recordingSub
 # end class recordingSub
 
