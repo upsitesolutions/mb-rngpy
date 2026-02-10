@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 #
-# Generated Mon Feb  9 17:56:10 2026 by generateDS.py version 2.44.3.
+# Generated Tue Feb 10 15:02:56 2026 by generateDS.py version 2.44.3.
 # Python 3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]
 #
 # Command line options:
@@ -163,8 +163,8 @@ supermod.secondary_type.subclass = secondary_typeSub
 
 
 class recordingSub(supermod.recording):
-    def __init__(self, id=None, lyrics_original=None, override_title=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, **kwargs_):
-        super(recordingSub, self).__init__(id, lyrics_original, override_title, title, length, annotation, disambiguation, video, artist_credit, first_release_date, release_list, alias_list, puid_list, isrc_list, relation_list, tag_list, user_tag_list, genre_list, user_genre_list, rating, user_rating, def_extension_element,  **kwargs_)
+    def __init__(self, id=None, lyrics_original=None, override_title=None, title=None, length=None, annotation=None, disambiguation=None, video=None, is_major=None, key_value=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, **kwargs_):
+        super(recordingSub, self).__init__(id, lyrics_original, override_title, title, length, annotation, disambiguation, video, is_major, key_value, artist_credit, first_release_date, release_list, alias_list, puid_list, isrc_list, relation_list, tag_list, user_tag_list, genre_list, user_genre_list, rating, user_rating, def_extension_element,  **kwargs_)
 supermod.recording.subclass = recordingSub
 # end class recordingSub
 

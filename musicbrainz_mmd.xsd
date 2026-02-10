@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ==================================================================
-  $Id: 065ee92df60fb88eb69b1b79745477803330b6b0 $
+  $Id: 6f7570eb843f831f5eae9d65046d01e0dc06c011 $
   
   Relax NG Schema for MusicBrainz XML Metadata Version 2.0
   
@@ -255,6 +255,8 @@
         <xs:element minOccurs="0" ref="mmd-2.0:annotation"/>
         <xs:element minOccurs="0" ref="mmd-2.0:disambiguation"/>
         <xs:element minOccurs="0" ref="mmd-2.0:video"/>
+        <xs:element minOccurs="0" ref="mmd-2.0:is-major"/>
+        <xs:element minOccurs="0" ref="mmd-2.0:key-value"/>
         <xs:element minOccurs="0" ref="mmd-2.0:artist-credit"/>
         <xs:element minOccurs="0" ref="mmd-2.0:first-release-date"/>
         <xs:element minOccurs="0" ref="mmd-2.0:release-list"/>
@@ -277,6 +279,15 @@
   <xs:element name="lyrics-original" type="xs:string"/>
   <xs:element name="override-title" type="xs:string"/>
   <xs:element name="length" type="xs:nonNegativeInteger"/>
+  <xs:element name="is-major">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="key-value" type="xs:string"/>
   <xs:element name="label">
     <xs:complexType>
       <xs:sequence>

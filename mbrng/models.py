@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Feb  9 17:56:09 2026 by generateDS.py version 2.44.3.
+# Generated Tue Feb 10 15:02:56 2026 by generateDS.py version 2.44.3.
 # Python 3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]
 #
 # Command line options:
@@ -5521,7 +5521,7 @@ class recording(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, id=None, lyrics_original=None, override_title=None, title=None, length=None, annotation=None, disambiguation=None, video=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, gds_collector_=None, **kwargs_):
+    def __init__(self, id=None, lyrics_original=None, override_title=None, title=None, length=None, annotation=None, disambiguation=None, video=None, is_major=None, key_value=None, artist_credit=None, first_release_date=None, release_list=None, alias_list=None, puid_list=None, isrc_list=None, relation_list=None, tag_list=None, user_tag_list=None, genre_list=None, user_genre_list=None, rating=None, user_rating=None, def_extension_element=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -5544,6 +5544,11 @@ class recording(GeneratedsSuper):
         self.video = video
         self.validate_video(self.video)
         self.video_nsprefix_ = "mmd-2.0"
+        self.is_major = is_major
+        self.validate_is_major(self.is_major)
+        self.is_major_nsprefix_ = "mmd-2.0"
+        self.key_value = key_value
+        self.key_value_nsprefix_ = "mmd-2.0"
         self.artist_credit = artist_credit
         self.artist_credit_nsprefix_ = "mmd-2.0"
         self.first_release_date = first_release_date
@@ -5621,6 +5626,14 @@ class recording(GeneratedsSuper):
         return self.video
     def set_video(self, video):
         self.video = video
+    def get_is_major(self):
+        return self.is_major
+    def set_is_major(self, is_major):
+        self.is_major = is_major
+    def get_key_value(self):
+        return self.key_value
+    def set_key_value(self, key_value):
+        self.key_value = key_value
     def get_artist_credit(self):
         return self.artist_credit
     def set_artist_credit(self, artist_credit):
@@ -5698,6 +5711,11 @@ class recording(GeneratedsSuper):
         # Validate type video, a restriction on xs:token.
         pass
         return result
+    def validate_is_major(self, value):
+        result = True
+        # Validate type is-major, a restriction on xs:token.
+        pass
+        return result
     def has__content(self):
         if (
             self.lyrics_original is not None or
@@ -5707,6 +5725,8 @@ class recording(GeneratedsSuper):
             self.annotation is not None or
             self.disambiguation is not None or
             self.video is not None or
+            self.is_major is not None or
+            self.key_value is not None or
             self.artist_credit is not None or
             self.first_release_date is not None or
             self.release_list is not None or
@@ -5784,6 +5804,14 @@ class recording(GeneratedsSuper):
             namespaceprefix_ = self.video_nsprefix_ + ':' if (UseCapturedNS_ and self.video_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%svideo>%s</%svideo>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.video), input_name='video')), namespaceprefix_ , eol_))
+        if self.is_major is not None:
+            namespaceprefix_ = self.is_major_nsprefix_ + ':' if (UseCapturedNS_ and self.is_major_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sis-major>%s</%sis-major>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.is_major), input_name='is-major')), namespaceprefix_ , eol_))
+        if self.key_value is not None:
+            namespaceprefix_ = self.key_value_nsprefix_ + ':' if (UseCapturedNS_ and self.key_value_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%skey-value>%s</%skey-value>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.key_value), input_name='key-value')), namespaceprefix_ , eol_))
         if self.artist_credit is not None:
             namespaceprefix_ = self.artist_credit_nsprefix_ + ':' if (UseCapturedNS_ and self.artist_credit_nsprefix_) else ''
             self.artist_credit.export(outfile, level, namespaceprefix_='mmd-2.0:', namespacedef_='', name_='artist-credit', pretty_print=pretty_print)
@@ -5856,6 +5884,12 @@ class recording(GeneratedsSuper):
         if self.video is not None:
             video_ = self.video
             etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}video').text = self.gds_format_string(video_)
+        if self.is_major is not None:
+            is_major_ = self.is_major
+            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}is-major').text = self.gds_format_string(is_major_)
+        if self.key_value is not None:
+            key_value_ = self.key_value
+            etree_.SubElement(element, '{http://musicbrainz.org/ns/mmd-2.0#}key-value').text = self.gds_format_string(key_value_)
         if self.artist_credit is not None:
             artist_credit_ = self.artist_credit
             artist_credit_.to_etree(element, name_='artist-credit', mapping_=mapping_, reverse_mapping_=reverse_mapping_, nsmap_=nsmap_)
@@ -5967,6 +6001,24 @@ class recording(GeneratedsSuper):
             self.video_nsprefix_ = child_.prefix
             # validate type video
             self.validate_video(self.video)
+        elif nodeName_ == 'is-major':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'is_major')
+            value_ = self.gds_validate_string(value_, node, 'is_major')
+            self.is_major = value_
+            self.is_major_nsprefix_ = child_.prefix
+            # validate type is-major
+            self.validate_is_major(self.is_major)
+        elif nodeName_ == 'key-value':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'key_value')
+            value_ = self.gds_validate_string(value_, node, 'key_value')
+            self.key_value = value_
+            self.key_value_nsprefix_ = child_.prefix
         elif nodeName_ == 'artist-credit':
             obj_ = artist_credit.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
@@ -6042,6 +6094,97 @@ class recording(GeneratedsSuper):
             self.def_extension_element.append(value_)
             self.def_extension_element_nsprefix_ = child_.prefix
 # end class recording
+
+
+class is_major(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "mmd-2.0"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, is_major)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if is_major.subclass:
+            return is_major.subclass(*args_, **kwargs_)
+        else:
+            return is_major(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def validate_is_major(self, value):
+        result = True
+        # Validate type is-major, a restriction on xs:token.
+        pass
+        return result
+    def has__content(self):
+        if (
+
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='mmd-2.0:', namespacedef_='xmlns:mmd-2.0="http://musicbrainz.org/ns/mmd-2.0#"', name_='is-major', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('is-major')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'is-major':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='is-major')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='is-major', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='mmd-2.0:', name_='is-major'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='mmd-2.0:', namespacedef_='xmlns:mmd-2.0="http://musicbrainz.org/ns/mmd-2.0#"', name_='is-major', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='is-major', mapping_=None, reverse_mapping_=None, nsmap_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://musicbrainz.org/ns/mmd-2.0#}' + name_, nsmap=nsmap_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://musicbrainz.org/ns/mmd-2.0#}' + name_, nsmap=nsmap_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        if reverse_mapping_ is not None:
+            reverse_mapping_[element] = self
+        return element
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        pass
+# end class is_major
 
 
 class label(GeneratedsSuper):
@@ -28509,6 +28652,7 @@ __all__ = [
     "instrument",
     "instrument_list",
     "ipi_list",
+    "is_major",
     "isni_list",
     "iso_3166_1_code_list",
     "iso_3166_2_code_list",
